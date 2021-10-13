@@ -215,11 +215,6 @@ searchToShowComparediv.addEventListener("click", () => {
         for (let i = 0; i < data.length; i++) {
           arrayOfCountries2[i] = data.Countries[i].Country;
         }
-<<<<<<< HEAD
-        // search2.addEventListener("click", () => {
-        let searched_value2 = country2.value;
-        arrayOfCountries2.forEach((item, index) => {
-=======
         // console.log(x);
 
         // search2.addEventListener("click", () => {
@@ -227,37 +222,27 @@ searchToShowComparediv.addEventListener("click", () => {
         let searched_value2 = country2.value;
         arrayOfCountries2.forEach((item, index) => {
           // console.log(arrayOfCountries2[index]);
->>>>>>> ee2f1527ec2824b0b4b9ffb7a204c3215b56d7f2
           if (
             searched_value2.toLowerCase() ==
             arrayOfCountries2[index].toLowerCase()
           ) {
-<<<<<<< HEAD
-=======
             // content.innerHTML = data.Countries[index].TotalConfirmed;
->>>>>>> ee2f1527ec2824b0b4b9ffb7a204c3215b56d7f2
             console.log(data.Countries[index].NewConfirmed);
             console.log(data.Countries[index].NewDeaths);
             console.log(data.Countries[index].NewRecovered);
             console.log(data.Countries[index].TotalConfirmed);
             console.log(data.Countries[index].TotalDeaths);
             console.log(data.Countries[index].TotalRecovered);
-<<<<<<< HEAD
-=======
             // console.log(data.Countries[index].Date.slice(0, 10));
             // console.log(data.Countries[index].Country2);
->>>>>>> ee2f1527ec2824b0b4b9ffb7a204c3215b56d7f2
 
             NewConfirmed2.innerHTML = data.Countries[index].NewConfirmed;
             NewDeaths2.innerHTML = data.Countries[index].NewDeaths;
             NewRecovered2.innerHTML = data.Countries[index].NewRecovered;
             TotalConfirmed2.innerHTML = data.Countries[index].TotalConfirmed;
             TotalDeaths2.innerHTML = data.Countries[index].TotalDeaths;
-<<<<<<< HEAD
-=======
             p2 = data.Countries[index].TotalDeaths;
             console.log(p2, p1);
->>>>>>> ee2f1527ec2824b0b4b9ffb7a204c3215b56d7f2
             TotalRecovered2.innerHTML = data.Countries[index].TotalRecovered;
             comparedCounty2 = data.Countries[index].Country;
             console.log(comparedCounty2);
@@ -276,11 +261,7 @@ searchToShowComparediv.addEventListener("click", () => {
             TotalConfirmedForBarChart2 = data.Countries[index].TotalConfirmed;
             TotalDeathsForBarChart2 = data.Countries[index].TotalDeaths;
             TotalRecoveredForBarChart2 = data.Countries[index].TotalRecovered;
-<<<<<<< HEAD
-            //Taking values for bar chart
-=======
             //Taking values for bar chart : Take - 2
->>>>>>> ee2f1527ec2824b0b4b9ffb7a204c3215b56d7f2
             // Calculating 2nd Ratios starts
 
             newDeathRatio2 =
@@ -301,9 +282,6 @@ searchToShowComparediv.addEventListener("click", () => {
               100;
 
             // Calculating 2nd  Ratios ends
-<<<<<<< HEAD
-            //BAR CHART
-=======
 
             // comparedNewDeathRatio = ();
             // comparedTotalDeathRatio;
@@ -312,7 +290,6 @@ searchToShowComparediv.addEventListener("click", () => {
 
             //////////////////////////////
             // LATEST BAR CHART
->>>>>>> ee2f1527ec2824b0b4b9ffb7a204c3215b56d7f2
 
             let dataObj2 = {
               labels: [
