@@ -2,13 +2,15 @@ let country = document.getElementById("country");
 let search = document.getElementById("search");
 let content = document.getElementById("content");
 let url = "https://api.covid19api.com/summary";
-// Variable for 1st country
+///////// Card /////////
 let NewConfirmed = document.getElementById("NewConfirmed");
 let NewDeaths = document.getElementById("NewDeaths");
 let NewRecovered = document.getElementById("NewRecovered");
 let TotalConfirmed = document.getElementById("TotalConfirmed");
 let TotalDeaths = document.getElementById("TotalDeaths");
 let TotalRecovered = document.getElementById("TotalRecovered");
+// let Date = document.getElementById("Date");
+// let report_for = document.getElementById("report_for");
 
 //Comparison
 
@@ -17,7 +19,6 @@ let comparison_div = document.getElementById("comparison_div");
 let country2 = document.getElementById("country2");
 let search2 = document.getElementById("search2");
 
-// Variable for 2nd country
 let NewConfirmed2 = document.getElementById("NewConfirmed2");
 let NewDeaths2 = document.getElementById("NewDeaths2");
 let NewRecovered2 = document.getElementById("NewRecovered2");
@@ -67,6 +68,16 @@ let totalDeathRatio2;
 let newRecoveredRatio2;
 let totalRecoveredRatio2;
 
+// Creating variables to Compare in Graph 1 & 2
+// let comparedNewDeathRatio;
+// let comparedTotalDeathRatio;
+// let comparedNewRecoveredRatio;
+// let comparedTotalRecoveredRatio;
+
+// let Date = document.getElementById("Date");
+// let report_for = document.getElementById("report_for");
+// calculation
+
 fetch(url)
   .then((res) => res.json())
   .then((data) => {
@@ -83,8 +94,12 @@ fetch(url)
     // console.log(x);
 
     search.addEventListener("click", (e) => {
+      // e.preventDefault();
+      // window.location.reload();
       let searched_value = country.value;
+      // console.log(searched_value.length);
       arrayOfCountries.forEach((item, index) => {
+        // console.log(arrayOfCountries[index]);
         if (
           searched_value.toLowerCase() == arrayOfCountries[index].toLowerCase()
         ) {
@@ -133,6 +148,8 @@ fetch(url)
             100;
 
           // Calculating Ratios 2 ends
+          // console.log("NaN" == newDeathRatio);
+          // console.log(newDeathRatio, totalDeathRatio);
 
           let labels1 = ["new Deaths(%)", "Total Deaths(%)"];
           let deathVsConfirmed =
@@ -179,6 +196,7 @@ fetch(url)
     });
   });
 
+////////////////////////////////////////////////////////////
 // ------------------------COMPERISON-----------------------------------
 
 searchToShowComparediv.addEventListener("click", () => {
@@ -190,116 +208,133 @@ searchToShowComparediv.addEventListener("click", () => {
         data.Countries.map((item, index) => {
           if (index <= 192) {
             arrayOfCountries2.push(item.Country);
+            // console.log(item);
           }
         });
 
         for (let i = 0; i < data.length; i++) {
           arrayOfCountries2[i] = data.Countries[i].Country;
         }
-        search2.addEventListener("click", () => {
-          let searched_value2 = country2.value;
-          arrayOfCountries2.forEach((item, index) => {
-            if (
-              searched_value2.toLowerCase() ==
-              arrayOfCountries2[index].toLowerCase()
-            ) {
-              console.log(data.Countries[index].NewConfirmed);
-              console.log(data.Countries[index].NewDeaths);
-              console.log(data.Countries[index].NewRecovered);
-              console.log(data.Countries[index].TotalConfirmed);
-              console.log(data.Countries[index].TotalDeaths);
-              console.log(data.Countries[index].TotalRecovered);
+        // console.log(x);
 
-              NewConfirmed2.innerHTML = data.Countries[index].NewConfirmed;
-              NewDeaths2.innerHTML = data.Countries[index].NewDeaths;
-              NewRecovered2.innerHTML = data.Countries[index].NewRecovered;
-              TotalConfirmed2.innerHTML = data.Countries[index].TotalConfirmed;
-              TotalDeaths2.innerHTML = data.Countries[index].TotalDeaths;
-              TotalRecovered2.innerHTML = data.Countries[index].TotalRecovered;
-              comparedCounty2 = data.Countries[index].Country;
-              console.log(comparedCounty2);
-              // Taking values for comparison
-              comparedCountry2TotalConfirmed =
-                data.Countries[index].TotalConfirmed;
-              comparedCountry2TotalDeath = data.Countries[index].TotalDeaths;
-              comparedCountry2TotalRecovered =
-                data.Countries[index].TotalRecovered;
+        // search2.addEventListener("click", () => {
+        // window.location.reload();
+        let searched_value2 = country2.value;
+        arrayOfCountries2.forEach((item, index) => {
+          // console.log(arrayOfCountries2[index]);
+          if (
+            searched_value2.toLowerCase() ==
+            arrayOfCountries2[index].toLowerCase()
+          ) {
+            // content.innerHTML = data.Countries[index].TotalConfirmed;
+            console.log(data.Countries[index].NewConfirmed);
+            console.log(data.Countries[index].NewDeaths);
+            console.log(data.Countries[index].NewRecovered);
+            console.log(data.Countries[index].TotalConfirmed);
+            console.log(data.Countries[index].TotalDeaths);
+            console.log(data.Countries[index].TotalRecovered);
+            // console.log(data.Countries[index].Date.slice(0, 10));
+            // console.log(data.Countries[index].Country2);
 
-              //Taking values for bar chart
+            NewConfirmed2.innerHTML = data.Countries[index].NewConfirmed;
+            NewDeaths2.innerHTML = data.Countries[index].NewDeaths;
+            NewRecovered2.innerHTML = data.Countries[index].NewRecovered;
+            TotalConfirmed2.innerHTML = data.Countries[index].TotalConfirmed;
+            TotalDeaths2.innerHTML = data.Countries[index].TotalDeaths;
+            p2 = data.Countries[index].TotalDeaths;
+            console.log(p2, p1);
+            TotalRecovered2.innerHTML = data.Countries[index].TotalRecovered;
+            comparedCounty2 = data.Countries[index].Country;
+            console.log(comparedCounty2);
+            // Taking values for comparison
+            comparedCountry2TotalConfirmed =
+              data.Countries[index].TotalConfirmed;
+            comparedCountry2TotalDeath = data.Countries[index].TotalDeaths;
+            comparedCountry2TotalRecovered =
+              data.Countries[index].TotalRecovered;
 
-              NewConfirmedForBarChart2 = data.Countries[index].NewConfirmed;
-              NewDeathsForBarChart2 = data.Countries[index].NewDeaths;
-              NewRecoveredForBarChart2 = data.Countries[index].NewRecovered;
-              TotalConfirmedForBarChart2 = data.Countries[index].TotalConfirmed;
-              TotalDeathsForBarChart2 = data.Countries[index].TotalDeaths;
-              TotalRecoveredForBarChart2 = data.Countries[index].TotalRecovered;
-              //Taking values for bar chart
-              // Calculating 2nd Ratios starts
+            //Taking values for bar chart
 
-              newDeathRatio2 =
-                (data.Countries[index].NewDeaths /
-                  data.Countries[index].NewConfirmed) *
-                100;
-              totalDeathRatio2 =
-                (data.Countries[index].TotalDeaths /
-                  data.Countries[index].TotalConfirmed) *
-                100;
-              newRecoveredRatio2 =
-                (data.Countries[index].NewRecovered /
-                  data.Countries[index].NewConfirmed) *
-                100;
-              totalRecoveredRatio2 =
-                (data.Countries[index].TotalRecovered /
-                  data.Countries[index].TotalConfirmed) *
-                100;
+            NewConfirmedForBarChart2 = data.Countries[index].NewConfirmed;
+            NewDeathsForBarChart2 = data.Countries[index].NewDeaths;
+            NewRecoveredForBarChart2 = data.Countries[index].NewRecovered;
+            TotalConfirmedForBarChart2 = data.Countries[index].TotalConfirmed;
+            TotalDeathsForBarChart2 = data.Countries[index].TotalDeaths;
+            TotalRecoveredForBarChart2 = data.Countries[index].TotalRecovered;
+            //Taking values for bar chart : Take - 2
+            // Calculating 2nd Ratios starts
 
-              // Calculating 2nd  Ratios ends
-              //BAR CHART
+            newDeathRatio2 =
+              (data.Countries[index].NewDeaths /
+                data.Countries[index].NewConfirmed) *
+              100;
+            totalDeathRatio2 =
+              (data.Countries[index].TotalDeaths /
+                data.Countries[index].TotalConfirmed) *
+              100;
+            newRecoveredRatio2 =
+              (data.Countries[index].NewRecovered /
+                data.Countries[index].NewConfirmed) *
+              100;
+            totalRecoveredRatio2 =
+              (data.Countries[index].TotalRecovered /
+                data.Countries[index].TotalConfirmed) *
+              100;
 
-              let dataObj2 = {
-                labels: [
-                  "New Death Ratio(%)",
-                  "Total Death Ratio(%)",
-                  "New Recovered Ratio(%)",
-                  "Total Recovered Ratio(%)",
-                ],
-                datasets: [
-                  {
-                    label: comparedCounty1,
-                    data: [
-                      newDeathRatio,
-                      totalDeathRatio,
-                      newRecoveredRatio,
-                      totalRecoveredRatio,
-                    ],
-                    backgroundColor: "#ffea00b4",
-                  },
-                  {
-                    label: comparedCounty2,
-                    data: [
-                      newDeathRatio2,
-                      totalDeathRatio2,
-                      newRecoveredRatio2,
-                      totalRecoveredRatio2,
-                    ],
-                    backgroundColor: "#ff3c009f",
-                  },
-                ],
-              };
-              let config = {
-                type: "bar",
-                data: dataObj2,
-              };
-              let chart2 = new Chart(
-                document.getElementById("deathRatio2"),
-                config
-              );
-              country2.addEventListener("keydown", () => {
-                chart2.destroy();
-              });
-            }
-          });
+            // Calculating 2nd  Ratios ends
+
+            // comparedNewDeathRatio = ();
+            // comparedTotalDeathRatio;
+            // comparedNewRecoveredRatio;
+            // comparedTotalRecoveredRatio;
+
+            //////////////////////////////
+            // LATEST BAR CHART
+
+            let dataObj2 = {
+              labels: [
+                "New Death Ratio(%)",
+                "Total Death Ratio(%)",
+                "New Recovered Ratio(%)",
+                "Total Recovered Ratio(%)",
+              ],
+              datasets: [
+                {
+                  label: comparedCounty1,
+                  data: [
+                    newDeathRatio,
+                    totalDeathRatio,
+                    newRecoveredRatio,
+                    totalRecoveredRatio,
+                  ],
+                  backgroundColor: "#ffea00b4",
+                },
+                {
+                  label: comparedCounty2,
+                  data: [
+                    newDeathRatio2,
+                    totalDeathRatio2,
+                    newRecoveredRatio2,
+                    totalRecoveredRatio2,
+                  ],
+                  backgroundColor: "#ff3c009f",
+                },
+              ],
+            };
+            let config = {
+              type: "bar",
+              data: dataObj2,
+            };
+            let chart2 = new Chart(
+              document.getElementById("deathRatio2"),
+              config
+            );
+            country2.addEventListener("keydown", () => {
+              chart2.destroy();
+            });
+          }
         });
+        // });
       });
   });
 });
