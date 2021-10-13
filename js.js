@@ -2,13 +2,15 @@ let country = document.getElementById("country");
 let search = document.getElementById("search");
 let content = document.getElementById("content");
 let url = "https://api.covid19api.com/summary";
-// Variable for 1st country
+///////// Card /////////
 let NewConfirmed = document.getElementById("NewConfirmed");
 let NewDeaths = document.getElementById("NewDeaths");
 let NewRecovered = document.getElementById("NewRecovered");
 let TotalConfirmed = document.getElementById("TotalConfirmed");
 let TotalDeaths = document.getElementById("TotalDeaths");
 let TotalRecovered = document.getElementById("TotalRecovered");
+// let Date = document.getElementById("Date");
+// let report_for = document.getElementById("report_for");
 
 //Comparison
 
@@ -17,7 +19,6 @@ let comparison_div = document.getElementById("comparison_div");
 let country2 = document.getElementById("country2");
 let search2 = document.getElementById("search2");
 
-// Variable for 2nd country
 let NewConfirmed2 = document.getElementById("NewConfirmed2");
 let NewDeaths2 = document.getElementById("NewDeaths2");
 let NewRecovered2 = document.getElementById("NewRecovered2");
@@ -67,6 +68,16 @@ let totalDeathRatio2;
 let newRecoveredRatio2;
 let totalRecoveredRatio2;
 
+// Creating variables to Compare in Graph 1 & 2
+// let comparedNewDeathRatio;
+// let comparedTotalDeathRatio;
+// let comparedNewRecoveredRatio;
+// let comparedTotalRecoveredRatio;
+
+// let Date = document.getElementById("Date");
+// let report_for = document.getElementById("report_for");
+// calculation
+
 fetch(url)
   .then((res) => res.json())
   .then((data) => {
@@ -83,8 +94,12 @@ fetch(url)
     // console.log(x);
 
     search.addEventListener("click", (e) => {
+      // e.preventDefault();
+      // window.location.reload();
       let searched_value = country.value;
+      // console.log(searched_value.length);
       arrayOfCountries.forEach((item, index) => {
+        // console.log(arrayOfCountries[index]);
         if (
           searched_value.toLowerCase() == arrayOfCountries[index].toLowerCase()
         ) {
@@ -133,6 +148,8 @@ fetch(url)
             100;
 
           // Calculating Ratios 2 ends
+          // console.log("NaN" == newDeathRatio);
+          // console.log(newDeathRatio, totalDeathRatio);
 
           let labels1 = ["new Deaths(%)", "Total Deaths(%)"];
           let deathVsConfirmed =
@@ -179,6 +196,7 @@ fetch(url)
     });
   });
 
+////////////////////////////////////////////////////////////
 // ------------------------COMPERISON-----------------------------------
 
 searchToShowComparediv.addEventListener("click", () => {
@@ -190,31 +208,56 @@ searchToShowComparediv.addEventListener("click", () => {
         data.Countries.map((item, index) => {
           if (index <= 192) {
             arrayOfCountries2.push(item.Country);
+            // console.log(item);
           }
         });
 
         for (let i = 0; i < data.length; i++) {
           arrayOfCountries2[i] = data.Countries[i].Country;
         }
+<<<<<<< HEAD
         // search2.addEventListener("click", () => {
         let searched_value2 = country2.value;
         arrayOfCountries2.forEach((item, index) => {
+=======
+        // console.log(x);
+
+        // search2.addEventListener("click", () => {
+        // window.location.reload();
+        let searched_value2 = country2.value;
+        arrayOfCountries2.forEach((item, index) => {
+          // console.log(arrayOfCountries2[index]);
+>>>>>>> ee2f1527ec2824b0b4b9ffb7a204c3215b56d7f2
           if (
             searched_value2.toLowerCase() ==
             arrayOfCountries2[index].toLowerCase()
           ) {
+<<<<<<< HEAD
+=======
+            // content.innerHTML = data.Countries[index].TotalConfirmed;
+>>>>>>> ee2f1527ec2824b0b4b9ffb7a204c3215b56d7f2
             console.log(data.Countries[index].NewConfirmed);
             console.log(data.Countries[index].NewDeaths);
             console.log(data.Countries[index].NewRecovered);
             console.log(data.Countries[index].TotalConfirmed);
             console.log(data.Countries[index].TotalDeaths);
             console.log(data.Countries[index].TotalRecovered);
+<<<<<<< HEAD
+=======
+            // console.log(data.Countries[index].Date.slice(0, 10));
+            // console.log(data.Countries[index].Country2);
+>>>>>>> ee2f1527ec2824b0b4b9ffb7a204c3215b56d7f2
 
             NewConfirmed2.innerHTML = data.Countries[index].NewConfirmed;
             NewDeaths2.innerHTML = data.Countries[index].NewDeaths;
             NewRecovered2.innerHTML = data.Countries[index].NewRecovered;
             TotalConfirmed2.innerHTML = data.Countries[index].TotalConfirmed;
             TotalDeaths2.innerHTML = data.Countries[index].TotalDeaths;
+<<<<<<< HEAD
+=======
+            p2 = data.Countries[index].TotalDeaths;
+            console.log(p2, p1);
+>>>>>>> ee2f1527ec2824b0b4b9ffb7a204c3215b56d7f2
             TotalRecovered2.innerHTML = data.Countries[index].TotalRecovered;
             comparedCounty2 = data.Countries[index].Country;
             console.log(comparedCounty2);
@@ -233,7 +276,11 @@ searchToShowComparediv.addEventListener("click", () => {
             TotalConfirmedForBarChart2 = data.Countries[index].TotalConfirmed;
             TotalDeathsForBarChart2 = data.Countries[index].TotalDeaths;
             TotalRecoveredForBarChart2 = data.Countries[index].TotalRecovered;
+<<<<<<< HEAD
             //Taking values for bar chart
+=======
+            //Taking values for bar chart : Take - 2
+>>>>>>> ee2f1527ec2824b0b4b9ffb7a204c3215b56d7f2
             // Calculating 2nd Ratios starts
 
             newDeathRatio2 =
@@ -254,7 +301,18 @@ searchToShowComparediv.addEventListener("click", () => {
               100;
 
             // Calculating 2nd  Ratios ends
+<<<<<<< HEAD
             //BAR CHART
+=======
+
+            // comparedNewDeathRatio = ();
+            // comparedTotalDeathRatio;
+            // comparedNewRecoveredRatio;
+            // comparedTotalRecoveredRatio;
+
+            //////////////////////////////
+            // LATEST BAR CHART
+>>>>>>> ee2f1527ec2824b0b4b9ffb7a204c3215b56d7f2
 
             let dataObj2 = {
               labels: [
