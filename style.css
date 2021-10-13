@@ -1,0 +1,172 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
+* {
+  font-family: "Poppins", sans-serif;
+}
+body {
+  background-color: #fafbfd;
+}
+h1 {
+  font-size: 30px;
+  line-height: 10px;
+  font-weight: 600;
+  margin-left: 80px;
+}
+
+header,
+footer {
+  box-shadow: 0 0 30px 0 rgb(82 63 105 / 5%);
+  background-color: white !important;
+  padding: 10px;
+}
+/* search box */
+input#country,
+input#country2 {
+  font-size: 12px;
+  margin-top: 10px;
+  width: 150px;
+  line-height: 25px;
+}
+
+/* coloring search button */
+input#search,
+input#search2 {
+  /* background-color: rgb(17, 250, 238); */
+  background-color: #1de9b6;
+  color: #fff;
+  border: none;
+  height: 30px;
+  /* margin-top: 100px; */
+}
+.components {
+  box-shadow: 0 0 30px 0 rgb(82 63 105 / 5%);
+  background-color: white !important;
+  margin: 10px;
+  padding: 10px;
+}
+h4 {
+  font-size: 16px;
+}
+.col-12 {
+  margin-bottom: 0px;
+}
+
+/* font size of - 
+1. 6 coponents
+2. search box
+3. search button */
+.col-sm-3.col-6.components,
+#search,
+#country,
+#search2,
+#country2,
+input#searchToShowComparediv {
+  font-size: 16px;
+}
+/* vertically centering icons in 6 components */
+.icons {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 30px !important;
+}
+
+/* coloring icons */
+.fa-virus,
+.fa-viruses {
+  color: crimson;
+}
+.fa-frown-open,
+.fa-sad-tear {
+  color: red;
+}
+.fa-smile-beam,
+.fa-laugh-beam {
+  color: rgb(25, 202, 25);
+}
+
+/* chart deathRatio */
+#deathRatio {
+  margin-top: 0px;
+  transform: scale(0.8);
+}
+
+/* Showing Death % */
+#death_percentage {
+  color: #f50057;
+  /* color: #ff3c009f; */
+  font-weight: 600;
+}
+#deathRatio2 {
+  margin-top: 100px;
+}
+/* Comparison */
+#comparison_div,
+#searchToShowComparediv {
+  display: none;
+}
+footer {
+  margin-top: 120px;
+  margin-bottom: 10px;
+}
+footer h4 {
+  font-size: 16px;
+  line-height: 40px;
+}
+/* compare button design */
+input#searchToShowComparediv {
+  font-size: 16px;
+  background-color: #1de9b6;
+  color: #fff;
+  border: none;
+  height: 30px;
+  margin-bottom: 10px;
+  width: 90%;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+/* how_to_prevent div */
+ul {
+  margin-top: 37px;
+  box-shadow: 0 0 30px 0 rgb(82 63 105 / 5%);
+  background-color: white !important;
+  /* padding-left: -1px; */
+  padding: 16px 0 16px 30px;
+  width: 554px;
+  /* padding: 10px 10px 10px 10px; */
+}
+ul li {
+  /* margin-top: 5px; */
+  line-height: 30px;
+}
+h3.to_prevent_heading {
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+/* MEDIA QUERY */
+@media only screen and (max-width: 767px) {
+  /* Shifting search bar and buttons right */
+  #search,
+  #country,
+  #search2,
+  #country2,
+  input#searchToShowComparediv {
+    margin-left: 43px;
+  }
+  /* Resizing pie chart */
+  #deathRatio {
+    /* margin-top: -0px; */
+    transform: scale(0.6);
+  }
+  input#search {
+    margin-left: 2px;
+  }
+}
+
+@media only screen and (max-height: 931px) {
+  /* ul {
+    width: 420px;
+    padding-right: 12px;
+  } */
+}
